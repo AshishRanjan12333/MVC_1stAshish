@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<MVC_1stAshish.Models.Location>
+@{ }
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            PLACE
+        </th>
+        <th>
+            DETAILS
+        </th>
+    </tr>
+    @foreach (var location in Model)
+    {
+        <tr>
+            <td>
+                <a asp-action="CustomerList" asp-controller="customer" asp-route-id="location.ID">  @location.PLACE </a>
+            </td>
+            <td>
+                @location.DETAILS
+            </td>
+
+
+        </tr>
+    }
+</table>
+
