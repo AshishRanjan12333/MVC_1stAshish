@@ -10,23 +10,26 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_1stAshish.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220222131717_m1")]
-    partial class m1
+    [Migration("20220223134320_m3")]
+    partial class m3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("ProductVersion", "3.1.22")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MVC_1stAshish.Models.Customer", b =>
+            modelBuilder.Entity("MVC_1stAshish.Models.Employee", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EMAIL")
                         .HasColumnType("nvarchar(max)");
@@ -37,14 +40,9 @@ namespace MVC_1stAshish.Migrations
                     b.Property<string>("NAME")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("locationID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
 
-                    b.HasIndex("locationID");
-
-                    b.ToTable("Customers");
+                    b.ToTable("employees");
                 });
 
             modelBuilder.Entity("MVC_1stAshish.Models.Location", b =>
@@ -62,16 +60,40 @@ namespace MVC_1stAshish.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("location");
+                    b.ToTable("Locations");
                 });
 
-            modelBuilder.Entity("MVC_1stAshish.Models.Customer", b =>
+            modelBuilder.Entity("MVC_1stAshish.Models.customer", b =>
                 {
-                    b.HasOne("MVC_1stAshish.Models.Location", "location")
-                        .WithMany()
-                        .HasForeignKey("locationID");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Navigation("location");
+                    b.Property<string>("EMAIL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LocationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MOBILE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NAME")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("LocationID");
+
+                    b.ToTable("customers");
+                });
+
+            modelBuilder.Entity("MVC_1stAshish.Models.customer", b =>
+                {
+                    b.HasOne("MVC_1stAshish.Models.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationID");
                 });
 #pragma warning restore 612, 618
         }

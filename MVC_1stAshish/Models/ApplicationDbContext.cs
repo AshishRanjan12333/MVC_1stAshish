@@ -8,8 +8,10 @@ namespace MVC_1stAshish.Models
     public class ApplicationDbContext :DbContext
     {
        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        public DbSet<Location>location { get; set; }
-        public DbSet<customer> customer{ get; set; }
+        public DbSet<Location>Locations { get; set; }
+       public DbSet<customer> customers{ get; set; }
+        public DbSet<Employee> employees { get; set; }
 
     }
 }
+                                                                                                

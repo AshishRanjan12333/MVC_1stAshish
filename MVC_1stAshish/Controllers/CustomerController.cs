@@ -15,13 +15,13 @@ namespace MVC_1stAshish.Controllers
         }
         public IActionResult Index()
         {
-            List<Location> Location = DbContext.location.ToList();
+            List<Location> Location = DbContext.Locations.ToList();
 
             return View(Location);
         }
         public IActionResult CustomerList(int Id)
         {
-            List<customer> customer = DbContext.customer.Where(e => e.location.ID== Id).ToList();
+            List<customer> customer = DbContext.customers.Where(e => e.Location.ID== Id).ToList();
             return View(customer);
         }
     }
