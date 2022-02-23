@@ -9,7 +9,7 @@ namespace MVC_1stAshish.Models
     {
        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<Location>location { get; set; }
-        public DbSet<Customer> Customers{ get; set; }
+        public DbSet<customer> customer{ get; set; }
 
     }
 }

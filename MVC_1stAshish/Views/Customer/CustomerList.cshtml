@@ -1,13 +1,17 @@
-﻿
-@model IEnumerable<MVC_1stAshish.Models.Customer>
+﻿@model IEnumerable<MVC_1stAshish.Models.customer>
 
 
 @{ }
 
 <table class="table table-bordered">
     <tr>
-        <th>NAME</th>
-        <th>EMAIL</th>
+        <th>
+        <td>NAME</td>
+        <td>
+            EMAIL
+        </td>
+        </th>
+
     </tr>
     @foreach (var cust in Model)
     {
@@ -23,4 +27,3 @@
         </tr>
     }
 </table>
-

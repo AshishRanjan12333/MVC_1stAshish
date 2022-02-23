@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_1stAshish.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220221092230_m2")]
-    partial class m2
+    [Migration("20220222131717_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,20 +31,20 @@ namespace MVC_1stAshish.Migrations
                     b.Property<string>("EMAIL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("LOCATIONID")
-                        .HasColumnType("int");
-
                     b.Property<string>("MOBILE")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NAME")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("locationID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
-                    b.HasIndex("LOCATIONID");
+                    b.HasIndex("locationID");
 
-                    b.ToTable("customer");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("MVC_1stAshish.Models.Location", b =>
@@ -67,11 +67,11 @@ namespace MVC_1stAshish.Migrations
 
             modelBuilder.Entity("MVC_1stAshish.Models.Customer", b =>
                 {
-                    b.HasOne("MVC_1stAshish.Models.Location", "LOCATION")
+                    b.HasOne("MVC_1stAshish.Models.Location", "location")
                         .WithMany()
-                        .HasForeignKey("LOCATIONID");
+                        .HasForeignKey("locationID");
 
-                    b.Navigation("LOCATION");
+                    b.Navigation("location");
                 });
 #pragma warning restore 612, 618
         }

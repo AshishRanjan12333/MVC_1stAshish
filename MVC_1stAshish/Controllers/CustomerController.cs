@@ -21,8 +21,8 @@ namespace MVC_1stAshish.Controllers
         }
         public IActionResult CustomerList(int Id)
         {
-            List<Customer> customers = DbContext.Customers.Where(e => e.LOCATION.ID == Id).ToList();
-            return View(customers);
+            List<customer> customer = DbContext.customer.Where(e => e.location.ID== Id).ToList();
+            return View(customer);
         }
     }
 }

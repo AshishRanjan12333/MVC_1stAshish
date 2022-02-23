@@ -8,17 +8,15 @@
 <table class="table table-bordered">
     <tr>
         <th>
-            PLACE
-        </th>
-        <th>
-            DETAILS
+            <td>Location</td>
+            <td>Details</td>
         </th>
     </tr>
     @foreach (var location in Model)
     {
         <tr>
             <td>
-                <a asp-action="CustomerList" asp-controller="customer" asp-route-id="location.ID">  @location.PLACE </a>
+                <a asp-action="CustomerList" asp-controller="customer" asp-route-id="@location.ID">@location.PLACE </a>
             </td>
             <td>
                 @location.DETAILS
